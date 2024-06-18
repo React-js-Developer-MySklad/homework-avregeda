@@ -1,0 +1,40 @@
+.menu {
+    @apply max-w-screen-xl;
+    @apply flex;
+    @apply max-w-screen-xl;
+    @apply flex-wrap;
+    @apply max-w-screen-xl;
+    @apply items-center;
+    @apply max-w-screen-xl;
+    @apply justify-between;
+    @apply max-w-screen-xl;
+    @apply mx-auto p-4;
+}
+
+.inner-div {
+    @apply flex;
+    @apply md:order-2;
+    @apply space-x-3;
+    @apply md:space-x-0;
+    @apply rtl:space-x-reverse;
+}
+
+.add-button {
+    @apply px-5;
+    @apply py-2.5;
+    @apply text-sm;
+    @apply font-medium;
+    @apply text-white;
+    @apply inline-flex ;
+    @apply items-center;
+    @apply bg-blue-700;
+    @apply hover:bg-blue-800;
+    @apply focus:ring-4;
+    @apply focus:outline-none ;
+    @apply focus:ring-blue-300;
+    @apply rounded-lg;
+    @apply text-center;
+    @apply dark:bg-blue-600;
+    @apply dark:hover:bg-blue-700;
+    @apply dark:focus:ring-blue-800;
+}
