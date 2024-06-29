@@ -3,31 +3,29 @@ import {screen, render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {Modal} from "./Modal";
 
-jest.mock('../modal/onShow');
-
 test('clean modal for new agent', () => {
     const onClose = jest.fn();
     const onSave = jest.fn();
-    const utils = render(<Modal show={true} onClose={onClose} onSave={onSave}/>)
+    const utils = render(<Modal onClose={onClose} onSave={onSave}/>)
 
     const nameinput = screen.getByLabelText('name') as HTMLInputElement;
     const inninput = screen.getByLabelText('inn') as HTMLInputElement;
     const kppinput = screen.getByLabelText('kpp') as HTMLInputElement;
     const addressArea = screen.getByLabelText('address') as HTMLTextAreaElement;
 
-    expect(nameinput.value).toBe('');
-    expect(inninput.value).toBe('');
-    expect(kppinput.value).toBe('');
-    expect(addressArea.value).toBe('');
+    expect(nameinput).toHaveValue('');
+    expect(inninput).toHaveValue(null);
+    expect(kppinput).toHaveValue(null);
+    expect(addressArea).toHaveValue('');
 
     fireEvent.change(nameinput, {target: {value: 'name'}})
-    fireEvent.change(inninput, {target: {value: '1234'}})
-    fireEvent.change(kppinput, {target: {value: '4321'}})
+    fireEvent.change(inninput, {target: {value: 1234}})
+    fireEvent.change(kppinput, {target: {value: 4321}})
     fireEvent.change(addressArea, {target: {value: 'address'}})
-    expect(nameinput.value).toBe('name');
-    expect(inninput.value).toBe('1234');
-    expect(kppinput.value).toBe('4321');
-    expect(addressArea.value).toBe('address');
+    expect(nameinput).toHaveValue('name');
+    expect(inninput).toHaveValue(1234);
+    expect(kppinput).toHaveValue(4321);
+    expect(addressArea).toHaveValue('address');
 
     fireEvent.click(screen.getByText('Добавить'));
     expect(onSave).toBeCalledWith({
@@ -47,26 +45,26 @@ test('filled modal for existing agent', () => {
         inn: '1234',
         kpp: '4321',
         address: 'address'
-    }} show={true} onClose={onClose} onSave={onSave}/>)
+    }} onClose={onClose} onSave={onSave}/>)
 
     const nameinput = screen.getByLabelText('name') as HTMLInputElement;
     const inninput = screen.getByLabelText('inn') as HTMLInputElement;
     const kppinput = screen.getByLabelText('kpp') as HTMLInputElement;
     const addressArea = screen.getByLabelText('address') as HTMLTextAreaElement;
 
-    expect(nameinput.value).toBe('name');
-    expect(inninput.value).toBe('1234');
-    expect(kppinput.value).toBe('4321');
-    expect(addressArea.value).toBe('address');
+    expect(nameinput).toHaveValue('name');
+    expect(inninput).toHaveValue(1234);
+    expect(kppinput).toHaveValue(4321);
+    expect(addressArea).toHaveValue('address');
 
     fireEvent.change(nameinput, {target: {value: 'name2'}})
-    fireEvent.change(inninput, {target: {value: '12342'}})
-    fireEvent.change(kppinput, {target: {value: '43212'}})
+    fireEvent.change(inninput, {target: {value: 12342}})
+    fireEvent.change(kppinput, {target: {value: 43212}})
     fireEvent.change(addressArea, {target: {value: 'address2'}})
-    expect(nameinput.value).toBe('name2');
-    expect(inninput.value).toBe('12342');
-    expect(kppinput.value).toBe('43212');
-    expect(addressArea.value).toBe('address2');
+    expect(nameinput).toHaveValue('name2');
+    expect(inninput).toHaveValue(12342);
+    expect(kppinput).toHaveValue(43212);
+    expect(addressArea).toHaveValue('address2');
 
     fireEvent.click(screen.getByText('Добавить'));
     expect(onSave).toBeCalledWith({

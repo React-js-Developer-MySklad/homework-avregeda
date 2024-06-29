@@ -1,5 +1,5 @@
 import './table.css';
-import React, {memo, useEffect} from "react";
+import React, {memo} from "react";
 import {Contragent} from "../types";
 import {Row} from "./Row";
 
@@ -9,34 +9,28 @@ type iProps = {
     onDelete: (agent: Contragent) => void;
 }
 
-export const Table: React.FC<iProps> = memo(({agents, onEdit, onDelete}) => {
-    const columnNames: string[] = ['Наименование', 'ИНН', 'КПП', 'Адрес', 'Удалить'];
-    useEffect(() => {
-        console.log('Table mounted');
-        return () => console.log('Table unmounted');
-    });
+const COLUMN_NAMES: string[] = ['Наименование', 'ИНН', 'КПП', 'Адрес', 'Удалить'];
 
+export const Table: React.FC<iProps> = memo(({agents, onEdit, onDelete}) => {
     return (
         <div className='ca-table-wrapper'>
             <table className='ca-table'>
                 <thead className='ca-table-head'>
                 <tr>
                     {
-                        columnNames.map(c => <th scope='col' className='ca-table-head-column' key={c}>{c}</th>)
+                        COLUMN_NAMES.map((c, index) =>
+                            <th scope='col' className='ca-table-head-column' key={index}>{c}</th>)
                     }
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    agents.map(a => <Row key={a.id}
-                                         agent={a}
-                                         onDoubleClick={() => {
-                                             onEdit(a);
-                                         }}
-                                         onDelete={() => {
-                                             onDelete(a);
-                                         }}
-                    />)
+                    agents.map(a =>
+                        <Row key={a.id}
+                             agent={a}
+                             onDoubleClick={onEdit}
+                             onDelete={onDelete}
+                        />)
                 }
                 </tbody>
             </table>

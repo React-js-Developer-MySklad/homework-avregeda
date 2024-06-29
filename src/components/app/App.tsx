@@ -11,29 +11,24 @@ export const App: React.FC = () => {
     const [show, setShow] = useState(false);
     useEffect(() => {
         const agents = getAgents();
-        setAgents(() => agents);
+        setAgents(agents);
     }, []);
 
     const createAgent = useCallback(() => {
         setAgent(null);
-        setShow(() => true);
+        setShow(true);
     }, []);
 
     const editAgent = useCallback((a: Contragent) => {
-        setAgent(() => a);
-        setShow(() => true);
+        setAgent(a);
+        setShow(true);
     }, []);
 
     const deleteAgent = useCallback((a: Contragent) => {
         removeAgent(a.id);
         const agents = getAgents();
-        setAgents(() => agents);
+        setAgents(agents);
     }, []);
-
-    useEffect(() => {
-        console.log('App mounted');
-        return () => console.log('App unmounted');
-    });
 
     const onCLose = useCallback(() => {
         setShow(false);
@@ -43,7 +38,7 @@ export const App: React.FC = () => {
     const onSave = useCallback((a: Contragent) => {
         saveAgent(a);
         const agents = getAgents();
-        setAgents(() => agents);
+        setAgents(agents);
         setShow(false);
         setAgent(null);
     }, []);
@@ -53,7 +48,7 @@ export const App: React.FC = () => {
                 <Menu onAdd={createAgent}/>
                 <Table agents={agents} onEdit={editAgent} onDelete={deleteAgent}/>
             </main>
-            <Modal agent={agent} show={show} onClose={onCLose} onSave={onSave}/>
+            {show && <Modal agent={agent} onClose={onCLose} onSave={onSave}/>}
         </>
     );
 }
