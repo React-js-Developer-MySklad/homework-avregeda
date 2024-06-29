@@ -1,5 +1,5 @@
 import './table.css';
-import React from "react";
+import React, {useEffect} from "react";
 import {Contragent} from "../types";
 
 type iProps = {

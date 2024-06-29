@@ -1,5 +1,5 @@
 import './table.css';
-import React, {memo} from "react";
+import React from "react";
 import {Contragent} from "../types";
 import {Row} from "./Row";
 
@@ -11,7 +11,7 @@ type iProps = {
 
 const COLUMN_NAMES: string[] = ['Наименование', 'ИНН', 'КПП', 'Адрес', 'Удалить'];
 
-export const Table: React.FC<iProps> = memo(({agents, onEdit, onDelete}) => {
+export const Table: React.FC<iProps> = ({agents, onEdit, onDelete}) => {
     return (
         <div className='ca-table-wrapper'>
             <table className='ca-table'>
@@ -36,4 +36,4 @@ export const Table: React.FC<iProps> = memo(({agents, onEdit, onDelete}) => {
             </table>
         </div>
     );
-});
+};
