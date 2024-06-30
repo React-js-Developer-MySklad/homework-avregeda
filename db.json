@@ -1,0 +1,25 @@
+{
+  "contragents": [
+    {
+      "id": "3c9d",
+      "name": "Klup",
+      "inn": "0000",
+      "kpp": "90999",
+      "address": "dsfcasdf"
+    },
+    {
+      "id": "7c43",
+      "name": "Ivan",
+      "inn": "000012",
+      "kpp": "3123123",
+      "address": "sadfawfqa"
+    },
+    {
+      "id": "4a79",
+      "name": "vova",
+      "inn": "222222",
+      "kpp": "333",
+      "address": "ADSASD"
+    }
+  ]
+}

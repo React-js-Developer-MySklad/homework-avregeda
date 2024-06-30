@@ -1,3 +1,36 @@
+.modal {
+    @apply overflow-y-auto;
+    @apply overflow-x-hidden;
+    @apply fixed ;
+    @apply top-0 ;
+    @apply right-0 ;
+    @apply left-0 ;
+    @apply z-50  ;
+    @apply justify-center  ;
+    @apply items-center ;
+    @apply w-full  ;
+    @apply md:inset-0 ;
+    @apply h-[calc(100%-1rem)] ;
+    @apply max-h-full  ;
+    @apply flex;
+}
+
+.modal-width {
+    @apply relative;
+    @apply p-4;
+    @apply w-full;
+    @apply max-w-md ;
+    @apply max-h-full;
+}
+
+.modal-bg {
+    @apply relative ;
+    @apply bg-white ;
+    @apply rounded-lg ;
+    @apply shadow ;
+    @apply dark:bg-gray-700;
+}
+
 .field-name {
     @apply block;
     @apply mb-2;
@@ -61,4 +94,47 @@
     @apply dark:bg-blue-600 ;
     @apply dark:hover:bg-blue-700 ;
     @apply dark:focus:ring-blue-800;
+}
+
+.close-button {
+    @apply text-gray-400;
+    @apply bg-transparent ;
+    @apply hover:bg-gray-200 ;
+    @apply hover:text-gray-900 ;
+    @apply rounded-lg ;
+    @apply text-sm ;
+    @apply w-8 ;
+    @apply h-8 ;
+    @apply ms-auto ;
+    @apply inline-flex ;
+    @apply justify-center;
+    @apply items-center ;
+    @apply dark:hover:bg-gray-600 ;
+    @apply dark:hover:text-white;
+}
+
+.header-wrapper {
+    @apply flex;
+    @apply items-center ;
+    @apply justify-between;
+    @apply p-4;
+    @apply md:p-5;
+    @apply border-b ;
+    @apply rounded-t ;
+    @apply dark:border-gray-600;
+}
+
+.modal-header {
+    @apply text-lg;
+    @apply font-semibold ;
+    @apply text-gray-900;
+    @apply dark:text-white;
+}
+
+.glass-screen {
+    @apply bg-gray-900/50;
+    @apply dark:bg-gray-900/80 ;
+    @apply fixed ;
+    @apply inset-0 ;
+    @apply z-40;
 }
